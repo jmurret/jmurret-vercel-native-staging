@@ -1,5 +1,7 @@
 # supabase-vercel-secretless-daignostics
 
+Fake change 1.
+
 ## Set up
 
 Use a Vercel project that has the Supabase Marketplace integration. Then do these steps:
@@ -100,7 +102,7 @@ or the runtime cannot run the check). `summary.status` is the worst of `fail`, `
 `skip` results do not change `summary.status`.
 
 | Group | Checks |
-|---|---|
+| --- | --- |
 | `config` | `supabase_url`, `apikey_public` (no secret/service-role key in the `apikey` header), `resource_id` (`store_…` / `ir_…`), `pooler_host` (`POSTGRES_POOLER_HOST` is a host name only and contains `.pooler.`), `project_ref` (`SUPABASE_PROJECT_REF` is 20 lowercase letters and equals the ref in `SUPABASE_URL`) |
 | `path` | `auth_path` (OIDC path in use), `no_static_secret` (fail if `POSTGRES_URL`, `POSTGRES_PRISMA_URL`, `POSTGRES_URL_NON_POOLING` or `POSTGRES_PASSWORD` is set; warn if a service-role/secret key or `SUPABASE_JWT_SECRET` is set, under any env var name; reports env var names only) |
 | `vercel_oidc` | `oidc_present`, `oidc_iss`, `oidc_alg_kid` (RS256 + kid), `oidc_not_expired`, `oidc_owner_project`, `oidc_team` (`VERCEL_TEAM_ID`, if set, = `owner_id`) |
@@ -144,7 +146,7 @@ If `CROSS_TENANT_TARGETS` is not set, all cross-tenant checks are skipped. An en
 The probes are:
 
 | Check | Request | Rejection |
-|---|---|---|
+| --- | --- | --- |
 | `cross_tenant_rest` | `GET /rest/v1/` | `401` or `403` |
 | `cross_tenant_auth_admin` | `GET /auth/v1/admin/users?per_page=1` | `401` or `403` |
 | `cross_tenant_storage` | `GET /storage/v1/bucket` | any `3xx` or `4xx` (Storage can send `400` with an error body) |
